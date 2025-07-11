@@ -1,3 +1,12 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import joblib
+
+model = joblib.load(open("bank_churn_model.pkl", "rb"))
+scaler = joblib.load(open("bank_churn_scaler.pkl", "rb"))
+encoders = joblib.load(open("bank_churn_encoders.pkl", "rb"))
+
 st.title("💴Bank Churn Prediction (Term Deposit Subscription)")
 def user_input():
     age = st.slider("Age", 18, 95, 30)
